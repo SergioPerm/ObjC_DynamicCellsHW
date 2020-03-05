@@ -31,4 +31,30 @@
     [self presentViewController:newbieView animated:YES completion:nil];
     
 }
+
+- (IBAction)openStudentAction:(UIButton *)sender {
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+    StudentViewController *studentView = [sb instantiateViewControllerWithIdentifier:@"studentView"];
+
+    studentView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    studentView.modalPresentationStyle = UIModalPresentationFullScreen;
+    
+    [self presentViewController:studentView animated:YES completion:nil];
+    
+}
+
+- (IBAction)openMasterAction:(UIButton *)sender {
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+    MasterViewController *masterView = [sb instantiateViewControllerWithIdentifier:@"masterView"];
+
+    masterView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    masterView.modalPresentationStyle = UIModalPresentationFullScreen;
+    
+    [self presentViewController:masterView animated:YES completion:nil];
+    
+}
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1A414462411397400C7B3C8 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A414452411397400C7B3C8 /* Student.m */; };
+		B1A4144924113BD400C7B3C8 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A4144824113BD400C7B3C8 /* MasterViewController.m */; };
 		B1B9209C2410082B0082EEF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B9209B2410082B0082EEF7 /* AppDelegate.m */; };
 		B1B9209F2410082B0082EEF7 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B9209E2410082B0082EEF7 /* SceneDelegate.m */; };
 		B1B920A22410082B0082EEF7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B920A12410082B0082EEF7 /* ViewController.m */; };
@@ -17,6 +19,8 @@
 		B1B920B72410082E0082EEF7 /* objC_DynamicCellsHWTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B920B62410082E0082EEF7 /* objC_DynamicCellsHWTests.m */; };
 		B1B920C22410082E0082EEF7 /* objC_DynamicCellsHWUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B920C12410082E0082EEF7 /* objC_DynamicCellsHWUITests.m */; };
 		B1B920D124100FA00082EEF7 /* NewbieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B920D024100FA00082EEF7 /* NewbieViewController.m */; };
+		B1B920D4241023810082EEF7 /* StudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B920D3241023810082EEF7 /* StudentViewController.m */; };
+		B1B920D72410248B0082EEF7 /* ColorObj.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B920D62410248B0082EEF7 /* ColorObj.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1A414442411397400C7B3C8 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		B1A414452411397400C7B3C8 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		B1A4144724113BD400C7B3C8 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		B1A4144824113BD400C7B3C8 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		B1B920972410082B0082EEF7 /* objC_DynamicCellsHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = objC_DynamicCellsHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1B9209A2410082B0082EEF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1B9209B2410082B0082EEF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -57,6 +65,10 @@
 		B1B920C32410082E0082EEF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1B920CF24100FA00082EEF7 /* NewbieViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewbieViewController.h; sourceTree = "<group>"; };
 		B1B920D024100FA00082EEF7 /* NewbieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewbieViewController.m; sourceTree = "<group>"; };
+		B1B920D2241023810082EEF7 /* StudentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentViewController.h; sourceTree = "<group>"; };
+		B1B920D3241023810082EEF7 /* StudentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudentViewController.m; sourceTree = "<group>"; };
+		B1B920D52410248B0082EEF7 /* ColorObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorObj.h; sourceTree = "<group>"; };
+		B1B920D62410248B0082EEF7 /* ColorObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorObj.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +132,14 @@
 				B1B920AC2410082E0082EEF7 /* main.m */,
 				B1B920CF24100FA00082EEF7 /* NewbieViewController.h */,
 				B1B920D024100FA00082EEF7 /* NewbieViewController.m */,
+				B1B920D2241023810082EEF7 /* StudentViewController.h */,
+				B1B920D3241023810082EEF7 /* StudentViewController.m */,
+				B1B920D52410248B0082EEF7 /* ColorObj.h */,
+				B1B920D62410248B0082EEF7 /* ColorObj.m */,
+				B1A414442411397400C7B3C8 /* Student.h */,
+				B1A414452411397400C7B3C8 /* Student.m */,
+				B1A4144724113BD400C7B3C8 /* MasterViewController.h */,
+				B1A4144824113BD400C7B3C8 /* MasterViewController.m */,
 			);
 			path = objC_DynamicCellsHW;
 			sourceTree = "<group>";
@@ -272,10 +292,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1B920D4241023810082EEF7 /* StudentViewController.m in Sources */,
 				B1B920A22410082B0082EEF7 /* ViewController.m in Sources */,
 				B1B9209C2410082B0082EEF7 /* AppDelegate.m in Sources */,
+				B1A414462411397400C7B3C8 /* Student.m in Sources */,
 				B1B920AD2410082E0082EEF7 /* main.m in Sources */,
+				B1B920D72410248B0082EEF7 /* ColorObj.m in Sources */,
 				B1B9209F2410082B0082EEF7 /* SceneDelegate.m in Sources */,
+				B1A4144924113BD400C7B3C8 /* MasterViewController.m in Sources */,
 				B1B920D124100FA00082EEF7 /* NewbieViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

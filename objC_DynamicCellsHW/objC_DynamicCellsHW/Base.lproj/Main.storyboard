@@ -25,11 +25,38 @@
                                     <action selector="openNewbieAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uAb-qR-1wm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FO-eT-SCl">
+                                <rect key="frame" x="98" y="126" width="124" height="30"/>
+                                <color key="backgroundColor" red="0.99956279993057251" green="0.82502222061157227" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Student">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="openStudentAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NRg-lf-DvR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8v-39-nR4">
+                                <rect key="frame" x="98" y="180" width="124" height="30"/>
+                                <color key="backgroundColor" red="0.21358186006546021" green="0.82643264532089233" blue="0.92216426134109497" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Master">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="openMasterAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="smu-eU-HNa"/>
+                                    <action selector="openStudentAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aw3-Li-7Mo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="2FO-eT-SCl" firstAttribute="top" secondItem="Una-N2-qNe" secondAttribute="bottom" constant="24" id="GzY-2D-Cy3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R8v-39-nR4" secondAttribute="trailing" constant="98" id="HXp-QA-dWX"/>
                             <constraint firstItem="Una-N2-qNe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="JYg-az-rFW"/>
+                            <constraint firstItem="2FO-eT-SCl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="SFa-ct-Dre"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2FO-eT-SCl" secondAttribute="trailing" constant="98" id="bgJ-Tt-WLF"/>
                             <constraint firstItem="Una-N2-qNe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="72" id="cem-6K-eA2"/>
+                            <constraint firstItem="R8v-39-nR4" firstAttribute="top" secondItem="2FO-eT-SCl" secondAttribute="bottom" constant="24" id="cqV-Xj-7dt"/>
+                            <constraint firstItem="R8v-39-nR4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="kLV-8F-Rab"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Una-N2-qNe" secondAttribute="trailing" constant="98" id="xEx-An-h8G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -88,6 +115,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H07-HE-nyx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="825" y="138"/>
+        </scene>
+        <!--Student-->
+        <scene sceneID="D8a-Ub-alF">
+            <objects>
+                <viewController storyboardIdentifier="studentView" title="Student" id="9uw-wd-s0j" customClass="StudentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Szg-6c-API">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="cBu-T9-Qqw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Student" id="eH1-WM-cT1">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.turn.up.left.fill" catalog="system" id="s1g-Va-4xA">
+                                            <connections>
+                                                <action selector="closeStudentAction:" destination="9uw-wd-s0j" id="r6T-T7-Ix5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tke-tY-ueS">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9uw-wd-s0j" id="Sj2-Ft-Cui"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cBu-T9-Qqw" firstAttribute="trailing" secondItem="hVA-Q0-mVk" secondAttribute="trailing" id="49n-Ha-V7g"/>
+                            <constraint firstItem="tke-tY-ueS" firstAttribute="top" secondItem="cBu-T9-Qqw" secondAttribute="bottom" id="5Da-jt-9Ex"/>
+                            <constraint firstItem="hVA-Q0-mVk" firstAttribute="bottom" secondItem="tke-tY-ueS" secondAttribute="bottom" id="M3U-z9-593"/>
+                            <constraint firstItem="hVA-Q0-mVk" firstAttribute="trailing" secondItem="tke-tY-ueS" secondAttribute="trailing" id="P9r-cT-SaF"/>
+                            <constraint firstItem="cBu-T9-Qqw" firstAttribute="leading" secondItem="hVA-Q0-mVk" secondAttribute="leading" id="Ty7-Lk-OAs"/>
+                            <constraint firstItem="cBu-T9-Qqw" firstAttribute="top" secondItem="hVA-Q0-mVk" secondAttribute="top" id="k2y-8E-4Bi"/>
+                            <constraint firstItem="tke-tY-ueS" firstAttribute="leading" secondItem="hVA-Q0-mVk" secondAttribute="leading" id="yCv-pR-kPH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hVA-Q0-mVk"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="tke-tY-ueS" id="2by-3M-3Pt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gHW-tp-2NZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1513" y="138"/>
+        </scene>
+        <!--Master-->
+        <scene sceneID="tnt-SJ-8hf">
+            <objects>
+                <viewController storyboardIdentifier="masterView" title="Master" id="d6Z-td-0zi" customClass="MasterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gHf-hk-Jsa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-IX-RVp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Master" id="apE-9x-Uik">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.turn.up.left.fill" catalog="system" id="2zE-F7-Q9j">
+                                            <connections>
+                                                <action selector="closeMasterAction:" destination="d6Z-td-0zi" id="K3J-L0-xjI"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MdB-mX-heA">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="MdB-mX-heA" firstAttribute="top" secondItem="UxA-IX-RVp" secondAttribute="bottom" id="E3O-8L-OFh"/>
+                            <constraint firstItem="UxA-IX-RVp" firstAttribute="leading" secondItem="lpE-Yl-fMC" secondAttribute="leading" id="Lz8-Vg-X8I"/>
+                            <constraint firstItem="UxA-IX-RVp" firstAttribute="trailing" secondItem="lpE-Yl-fMC" secondAttribute="trailing" id="X0C-zg-WyL"/>
+                            <constraint firstItem="MdB-mX-heA" firstAttribute="leading" secondItem="lpE-Yl-fMC" secondAttribute="leading" id="Xb0-Gg-J8M"/>
+                            <constraint firstItem="UxA-IX-RVp" firstAttribute="top" secondItem="lpE-Yl-fMC" secondAttribute="top" id="dSc-sk-AHj"/>
+                            <constraint firstItem="lpE-Yl-fMC" firstAttribute="trailing" secondItem="MdB-mX-heA" secondAttribute="trailing" id="hmP-ds-AWO"/>
+                            <constraint firstItem="lpE-Yl-fMC" firstAttribute="bottom" secondItem="MdB-mX-heA" secondAttribute="bottom" id="psD-0P-hrm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lpE-Yl-fMC"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="MdB-mX-heA" id="4Ik-R5-2Ap"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QYJ-4W-mrz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2198" y="138"/>
         </scene>
     </scenes>
     <resources>
