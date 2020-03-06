@@ -36,9 +36,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8v-39-nR4">
-                                <rect key="frame" x="98" y="180" width="124" height="30"/>
+                                <rect key="frame" x="42" y="178" width="236" height="30"/>
                                 <color key="backgroundColor" red="0.21358186006546021" green="0.82643264532089233" blue="0.92216426134109497" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Master">
+                                <state key="normal" title="Master, Superman and Mission">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -49,15 +49,15 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R8v-39-nR4" secondAttribute="trailing" constant="42" id="383-lg-mZp"/>
                             <constraint firstItem="2FO-eT-SCl" firstAttribute="top" secondItem="Una-N2-qNe" secondAttribute="bottom" constant="24" id="GzY-2D-Cy3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R8v-39-nR4" secondAttribute="trailing" constant="98" id="HXp-QA-dWX"/>
                             <constraint firstItem="Una-N2-qNe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="JYg-az-rFW"/>
                             <constraint firstItem="2FO-eT-SCl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="SFa-ct-Dre"/>
+                            <constraint firstItem="R8v-39-nR4" firstAttribute="top" secondItem="2FO-eT-SCl" secondAttribute="bottom" constant="22" id="Vmb-7W-lJM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2FO-eT-SCl" secondAttribute="trailing" constant="98" id="bgJ-Tt-WLF"/>
                             <constraint firstItem="Una-N2-qNe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="72" id="cem-6K-eA2"/>
-                            <constraint firstItem="R8v-39-nR4" firstAttribute="top" secondItem="2FO-eT-SCl" secondAttribute="bottom" constant="24" id="cqV-Xj-7dt"/>
-                            <constraint firstItem="R8v-39-nR4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="kLV-8F-Rab"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Una-N2-qNe" secondAttribute="trailing" constant="98" id="xEx-An-h8G"/>
+                            <constraint firstItem="R8v-39-nR4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="xJX-f0-eMQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

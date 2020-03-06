@@ -8,9 +8,26 @@
 
 #import "MasterViewController.h"
 
+typedef enum {
+    groupeGreateA = 0,
+    groupeGreateB = 1,
+    groupeGreateC = 2,
+    groupeGreateD = 3,
+    colorsSection = 4
+} sectionTypes;
+
 @interface MasterViewController ()
 
 @property (strong, nonatomic) NSMutableArray* studentsArray;
+
+@property (strong, nonatomic) NSMutableArray* studentsGreateA;
+@property (strong, nonatomic) NSMutableArray* studentsGreateB;
+@property (strong, nonatomic) NSMutableArray* studentsGreateC;
+@property (strong, nonatomic) NSMutableArray* studentsGreateD;
+
+@property (strong, nonatomic) NSMutableArray* colorsRows;
+
+@property (strong, nonatomic) NSArray* studentsGreateGroups;
 
 @end
 
@@ -23,6 +40,94 @@
     self.tableView.dataSource = self;
         
     self.studentsArray = [[NSMutableArray alloc] init];
+    self.studentsGreateA = [[NSMutableArray alloc] init];
+    self.studentsGreateB = [[NSMutableArray alloc] init];
+    self.studentsGreateC = [[NSMutableArray alloc] init];
+    self.studentsGreateD = [[NSMutableArray alloc] init];
+    self.studentsGreateGroups = [[NSMutableArray alloc] init];
+    
+    self.colorsRows = [[NSMutableArray alloc] init];
+        
+    NSMutableDictionary* fioDict = [self generateStudentsNames];
+    
+    [self generateFullStudentsArrayWithNamesDict:fioDict];
+    
+    for (Student* currentStudent in self.studentsArray) {
+        
+        if (currentStudent.averageBall == 2) {
+            [self.studentsGreateD addObject:currentStudent];
+        } else if (currentStudent.averageBall == 3) {
+            [self.studentsGreateC addObject:currentStudent];
+        } else if (currentStudent.averageBall == 4) {
+            [self.studentsGreateB addObject:currentStudent];
+        } else {
+            [self.studentsGreateA addObject:currentStudent];
+        }
+        
+    }
+    
+    self.studentsGreateD = [self sortStudentsArrByNames:self.studentsGreateD];
+    self.studentsGreateC = [self sortStudentsArrByNames:self.studentsGreateC];
+    self.studentsGreateB = [self sortStudentsArrByNames:self.studentsGreateB];
+    self.studentsGreateA = [self sortStudentsArrByNames:self.studentsGreateA];
+        
+    //generate color array
+    for (int i = 0; i < 10; i++) {
+        [self.colorsRows addObject: [self generateColor]];
+    }
+    
+    self.studentsGreateGroups = [NSArray arrayWithObjects:
+                                 self.studentsGreateA,
+                                 self.studentsGreateB,
+                                 self.studentsGreateC,
+                                 self.studentsGreateD,
+                                 self.colorsRows,
+                                 nil];
+    
+}
+
+#pragma mark - Methods
+
+- (NSMutableArray*) sortStudentsArrByNames:(NSMutableArray*) studentsArray {
+    
+    return (NSMutableArray*)[studentsArray sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        NSString *first = [(Student*)obj1 name];
+        NSString *second = [(Student*)obj2 name];
+        return [first compare:second];
+    }];
+    
+}
+
+- (void) generateFullStudentsArrayWithNamesDict:(NSMutableDictionary*) fioDict {
+    
+    for (int i = 0; i < [fioDict count]; i++) {
+         
+         Student* student = [[Student alloc] init];
+         student.averageBall = [self generateAverageBall];
+         
+         [self.studentsArray addObject:student];
+         
+     }
+     
+     NSArray* lastNames = [fioDict allKeys];
+     
+     for (int i = 0; i < [fioDict count]; i ++) {
+         
+         NSString* lastName = lastNames[i];
+         
+         NSString* name = [fioDict valueForKey:lastName];
+         
+         Student* student = self.studentsArray[i];
+         student.lastName = lastName;
+         student.name = name;
+         
+         [self.studentsArray setObject:student atIndexedSubscript:i];
+         
+     }
+    
+}
+
+- (NSMutableDictionary*) generateStudentsNames {
     
     NSMutableDictionary* fioDict = [[NSMutableDictionary alloc] init];
     
@@ -52,44 +157,19 @@
     [fioDict setValue:@"Yana" forKey:@"Pospelova"];
     [fioDict setValue:@"Siri" forKey:@"Applovna"];
     
-    for (int i = 0; i < [fioDict count]; i++) {
-        
-        Student* student = [[Student alloc] init];
-        student.averageBall = [self generateAverageBall];
-        
-        [self.studentsArray addObject:student];
-        
-    }
+    return fioDict;
     
-    NSArray* lastNames = [fioDict allKeys];
-    
-    for (int i = 0; i < [fioDict count]; i ++) {
-        
-        NSString* lastName = lastNames[i];
-        
-        NSString* name = [fioDict valueForKey:lastName];
-        
-        Student* student = self.studentsArray[i];
-        student.lastName = lastName;
-        student.name = name;
-        
-        [self.studentsArray setObject:student atIndexedSubscript:i];
-        
-    }
-    
-    self.studentsArray = [self.studentsArray sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-        NSString *first = [(Student*)obj1 name];
-        NSString *second = [(Student*)obj2 name];
-        return [first compare:second];
-    }];
-        
 }
 
-#pragma mark - Methods
+- (UIColor*) generateColor {
+    
+    return [UIColor colorWithHue:drand48() saturation:1.0 brightness:1.0 alpha:1.0];
+    
+}
 
 - (NSInteger) generateAverageBall {
     
-    NSInteger randomNum = arc4random_uniform(50);
+    NSInteger randomNum = 2 + arc4random_uniform((uint32_t)(4));
     
     return randomNum;
     
@@ -99,39 +179,93 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 1;
+    return [self.studentsGreateGroups count];
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [self.studentsArray count];
+    NSMutableArray* studentsArr = [self.studentsGreateGroups objectAtIndex:section];
+    
+    return [studentsArr count];
+    
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    NSString* headerText = @"";
+    
+    if (section == groupeGreateA) {
+        headerText = @"Отличники";
+    } else if (section == groupeGreateB) {
+        headerText = @"Хорошисты";
+    } else if (section == groupeGreateC) {
+        headerText = @"Троешники";
+    } else if (section == groupeGreateD) {
+        headerText = @"Двоешники";
+    } else if (section == colorsSection) {
+        headerText = @"Цвета";
+    }
+    
+    return headerText;
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString* identifier = @"Cell";
+    static NSString* identifier = @"";
+    
+    UITableViewCellStyle cellStyle = UITableViewCellStyleValue1;
+    
+    if (indexPath.section == colorsSection) {
+        identifier = @"ColorCell";
+        cellStyle = UITableViewCellStyleDefault;
+    } else {
+        identifier = @"Cell";
+        cellStyle = UITableViewCellStyleValue1;
+    }
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc] initWithStyle:cellStyle reuseIdentifier:identifier];
+    }
+    
+    if (indexPath.section == colorsSection) {
         
-        NSLog(@"Created cell!");
+        NSMutableArray* colorRows = [self.studentsGreateGroups objectAtIndex:colorsSection];
+        
+        UIColor* currentColor = [colorRows objectAtIndex:indexPath.row];
+        
+        CGFloat redColor = 0;
+        CGFloat greenColor = 0;
+        CGFloat blueColor = 0;
+        CGFloat alpha = 0;
+        
+        [currentColor getRed:&redColor green:&greenColor blue:&blueColor alpha:&alpha];
+        
+        cell.backgroundColor = currentColor;
+        cell.textLabel.text = [NSString stringWithFormat:@"R: %.2f G: %.2f B: %.2f", redColor * 256, greenColor * 256, blueColor * 256];
+        
+    } else {
+        
+        NSMutableArray* studentsArr = [self.studentsGreateGroups objectAtIndex:indexPath.section];
+        
+        Student* student = [studentsArr objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", student.name, student.lastName];
+        
+        if (student.averageBall < 3) {
+            cell.backgroundColor = [UIColor systemPinkColor];
+        } else {
+            cell.backgroundColor = [UIColor whiteColor];
+        }
+        
+        NSString* averageBall = [NSString stringWithFormat: @"%ld", (long)student.averageBall];
+        
+        cell.detailTextLabel.text = averageBall;
     }
         
-    Student* student = [self.studentsArray objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", student.name, student.lastName];
-    
-    if (student.averageBall < 20)
-        cell.backgroundColor = [UIColor systemPinkColor];
-    
-    NSString* averageBall = [NSString stringWithFormat: @"%ld", (long)student.averageBall];
-    
-    cell.detailTextLabel.text = averageBall;
-    
     return cell;
     
 }
